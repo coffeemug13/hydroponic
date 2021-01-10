@@ -1,0 +1,15 @@
+# sudo cp hydro.service /etc/systemd/system/hydro.service
+[Unit]
+Description=Hydroponic Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u main.py
+WorkingDirectory=/home/pi/script
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
